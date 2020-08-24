@@ -96,3 +96,7 @@ sys_halt(void) {
     while(1);
     return 0;
 }
+
+int sys_cps(void) {
+    return cps();
+}
