@@ -28,6 +28,8 @@ memcmp(const void *v1, const void *v2, uint n)
   return 0;
 }
 
+// Copies n characters from src to dst, but for overlapping memory blocks,
+// memmove() is a safer approach than memcpy().
 void*
 memmove(void *dst, const void *src, uint n)
 {
@@ -36,6 +38,7 @@ memmove(void *dst, const void *src, uint n)
 
   s = src;
   d = dst;
+  // if s and d are overlapping, copy in reverse
   if(s < d && s + n > d){
     s += n;
     d += n;
